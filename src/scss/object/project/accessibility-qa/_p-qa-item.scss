@@ -1,0 +1,152 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+.p-qa-item {
+  
+}
+
+
+.p-qa-item__question {
+  background-color: #E4EAF0;
+  padding: rem(12) rem(38) rem(12) rem(33);
+  cursor: pointer;
+  position: relative;
+  @include mq(md) {
+    padding: rem(18) rem(54) rem(18) rem(49);
+  }
+}
+
+/* アクセシビリティ対応 */
+.p-qa-item__question button {
+  font-size: max(rem(16), 14px);
+  letter-spacing: $ls;
+  line-height: calc(28/ 16);
+  width: 100%;
+  text-align: left;
+  background: initial;
+  border: none;
+  color: initial;
+  padding: initial;
+}
+.p-qa-item__question button:focus-visible {
+  outline: 2px solid #142463;
+}
+/* safari対策 */
+_::-webkit-full-page-media, _:future, :root .p-qa-item__question button:focus {
+  outline: 2px solid #142463;
+}
+
+.p-qa-item__question::before,
+.p-qa-item__question::after {
+  position: absolute;
+  content: '';
+  display: block;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+
+
+.p-qa-item__question::before {
+  left: rem(12);
+  top: rem(7);
+  content: 'q';
+  font-family: "akrobat";
+  text-transform: uppercase;
+  font-size: rem(24);
+  color: #142463;
+  @include mq(md) {
+    font-size: rem(28);
+    top: rem(9);
+    left: rem(24);
+  }
+}
+
+
+/* 表示状態を画像を表示する場合 */
+// .p-qa-item__question::after {
+//   width: rem(16);
+//   height: rem(16);
+//   background-image: url(../images/qa/icon-plus.png);
+//   right: rem(12);
+//   top: rem(18);
+//   transition: background-image .3s ease;
+//   @include mq(md) {
+//     width: rem(28);
+//     height: rem(28);
+//     right: rem(24);
+//   }
+// }
+// .p-qa-item__question.is-open::after {
+//   background-image: url(../images/qa/icon-minus.png);
+// }
+
+
+/* 表示状態をCSSで制御する場合 */
+.p-qa-item__btn {
+  position: relative;
+}
+
+.p-qa-item__btn::before,
+.p-qa-item__btn::after {
+  position: absolute;
+  content: '';
+  display: block;
+  height: rem(2);
+  width: rem(20);
+  right: rem(-25);
+  top: rem(14);
+  background: $text-color;
+  transition: transform .2s ease;
+  @include mq(md) {
+    width: rem(28);
+    right: rem(-32);
+  }
+}
+.p-qa-item__btn[aria-expanded="true"]::before {
+
+}
+.p-qa-item__btn[aria-expanded="true"]::after {
+
+}
+.p-qa-item__btn[aria-expanded="false"]::before {
+  transform: rotate(90deg);
+}
+.p-qa-item__btn[aria-expanded="false"]::after {
+  // transform: rotate(180deg);
+}
+
+
+.p-qa-item__answer {
+  font-size: max(rem(16), 14px);
+  letter-spacing: $ls;
+  line-height: calc(28/ 16);
+  // display: none;
+  box-shadow: 0px 4px 14px color.scale(#000, $alpha: -90%);
+  padding: rem(12) rem(12) rem(12) rem(33);
+  position: relative;
+  @include mq(md) {
+    padding: rem(18) rem(24) rem(18) rem(49);
+    
+  }
+}
+.p-qa-item__answer.is-open {
+  // display: block;
+}
+.p-qa-item__answer::before {
+  position: absolute;
+  display: block;
+  content: 'a';
+  left: rem(12);
+  top: rem(7);
+  font-family: "akrobat";
+  text-transform: uppercase;
+  font-size: rem(24);
+  color: #142463;
+  @include mq(md) {
+    font-size: rem(28);
+    top: rem(9);
+    left: rem(24);
+  }
+}

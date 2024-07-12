@@ -1,0 +1,53 @@
+{
+  "separator": "｜",
+  "sitename": "株式会社hoge-vite",
+  "description": "default description vite",
+  "ogp_imgUrl": "https://example.com/ogp.png",
+  "twitter_card_size": "summary_large_image",
+  "twitter_user": "@hoge_vite",
+  
+  "default": {
+    "title": "default title",
+    "keywords": "keywords,default,vite"
+  },
+  
+  "top": {
+    "title": "トップページ",
+    "description": "トップページのディスクリプション",
+    "keywords": "top,keywords",
+    "canonical": "https://example.com/",
+    "ogp_description": "トップページのogpディスクリプション",
+    "ogp_type": "website",
+    "ogp_url": "https://example.com/"
+  },
+
+  "list": {
+    "title": "list - document",
+    "description": "list description",
+    "keywords": "list,keywords",
+    "canonical": "https://example.com/list/",
+    "ogp_description": "listページのogpディスクリプション",
+    "ogp_type": "web",
+    "ogp_url": "https://example.com/list/"
+  },
+
+  "party": {
+    "title": "partyyyyyyy night!!!!!!",
+    "description": "partyNight description",
+    "keywords": "party,keywords",
+    "canonical": "https://example.com/party/",
+    "ogp_description": "partyページのogpディスクリプション",
+    "ogp_type": "web",
+    "ogp_url": "https://example.com/party/"
+  },
+
+  "test": {
+    "title": "test - document",
+    "description": "test description",
+    "keywords": "keywords",
+    "canonical": "https://example.com/test/",
+    "ogp_description": "testページのogpディスクリプション",
+    "ogp_type": "article",
+    "ogp_url": "https://example.com/test/"
+  }
+}

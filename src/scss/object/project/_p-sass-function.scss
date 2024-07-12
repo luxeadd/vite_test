@@ -1,0 +1,52 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+/* sass関数使用例 */
+.p-sass-function {
+	display: inline-block;
+	color: #FFF;
+
+
+	/* color関数 */
+	// background-color: rgba(0, 78, 245, 0.6); // 今後エラー
+	background-color: color.scale(#004ef5, $alpha: -40%);
+	background-color: color.adjust(#004ef5, $alpha: -0.4);
+
+	/* 除算処理 */
+	// padding: (60px / 3); // エラー
+	padding: math.div(60px, 3);
+	padding: calc(60px / 3);
+
+	/* vw()関数 */
+	width: vw(200, 1440); //ブラウザ幅が1440pxの時に200px
+	width: vw(300); //ブラウザ幅が$vw_standard_widthで設定した幅の時に200px
+
+	/* メディアクエリ使用例 */
+	// PC時
+	@include mq(md) {
+		font-size: rem(24);
+	}
+
+	// （例）800px以下の時
+	@include max(800) {
+		font-size: rem(24);
+		font-weight: bold;
+	}
+
+	// （例）1440px以上の時
+	@include min(1440) {
+		font-size: rem(24);
+		font-weight: bold;
+	}
+
+	// （例）1200px〜1440pxの時
+	@include range(1200, 1440) {
+		font-size: rem(24);
+		font-weight: bold;
+	}
+
+
+
+	margin-bottom: rem(100);
+}

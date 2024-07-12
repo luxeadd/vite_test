@@ -1,0 +1,213 @@
+// @use 'global' as *;
+
+@use "sass:map";
+
+////////////////////
+// 色の指定
+////////////////////
+$background: #fff; // デフォルトの背景色
+
+$text-color: #333; // デフォルトのテキスト色
+$text-primary: #65AEE4;
+
+
+////////////////////
+// フォント設定
+////////////////////
+$font-family-base: "";// ベースフォント
+$font-size-base: 16px; // ベースフォントサイズ
+$font-weight-base: 400; // ベースフォントウェイト
+$ls: 0.04em; // ベース文字間隔
+$lh: 1.6; // ベース行間
+
+
+////////////////////
+// マウスホバー
+////////////////////
+$opacity: 0.7; // 透過度
+
+
+
+////////////////
+// z-index設定
+////////////////
+$header_z-index: 80; //ヘッダー
+$header_nav_z-index: 99; //ヘッダーナビ
+$hamburger_z-index: 999; //ドロワーメニュー
+
+
+
+////////////////////
+// レイアウト
+////////////////////
+$l-tab: 768px; // タブレットサイズ
+$l-tabpc: 1024px; // タブレットサイズ〜PCサイズの境界
+$l-inner: 1000px; // インナー幅
+$l-pc: 1440px; // パソコン幅
+// メディアクエリ用変数
+$md: 768px; // 768px以上
+
+
+////////////////////
+// ブレークポイント
+////////////////////
+$breakpoints: (
+	/* スマホファースト */
+	"sp": "screen and (min-width: 375px)",
+	"md": "screen and (min-width: #{$md})",
+	"tab": "screen and (min-width: #{$l-tab})",
+	"pc": "screen and (min-width: #{$l-inner})",
+	"lg": "screen and (min-width: #{$l-pc})",
+	"tabpc": "screen and (min-width: #{$l-tab}) and (max-width: #{$l-tabpc - 1})",
+
+	/* PCファースト */
+	// "sp": "screen and (max-width: #{$md - 1})",
+	// "md": "screen and (min-width: #{$md})",
+	// "tab": "screen and (min-width: #{$l-tab})",
+	// "pc": "screen and (min-width: #{$l-inner})",
+	// "lg": "screen and (min-width: #{$l-pc})",
+	// "tabpc": "screen and (min-width: #{$l-tab}) and (max-width: #{$l-tabpc - 1})",
+);
+
+
+////////////////////
+// メディアクエリー
+////////////////////
+/* $brakepointsキーで指定 */
+@mixin mq($breakpoint: md) {
+	@media #{map.get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+/* --px以上から指定 */
+@mixin min($width) {
+  @media screen and (min-width: #{$width}px) {
+    @content;
+  }
+}
+/* --pxまで指定 */
+@mixin max($width) {
+  @media screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+/* 範囲指定 $min:最小値 $max:最大値 */
+@mixin range($min, $max) {
+  @media screen and (min-width: #{$min}px) and (max-width: #{$max}px) {
+    @content;
+  }
+}
+
+
+////////////////////
+// 余白
+////////////////////
+$padding-pc: 25px; // 768px以上の余白
+$padding-sp: 20px; // スマホ時の余白
+
+
+////////////////////
+// vwの基準となる幅 →320px=スマホ最小幅
+////////////////////
+$vw_standard_width: 375;
+
+
+////////////////////
+// 非表示設定
+////////////////////
+
+// スマホ時表示
+.u-mobile {
+	@include mq(md) {
+		display: none;
+	}
+}
+
+// 768px以上で表示
+.u-desktop {
+	display: none;
+	@include mq(md) {
+		display: block;
+	}
+}
+
+
+///////////////////////////////////
+// スクロールフェードアニメーション
+///////////////////////////////////
+
+//フェードアニメーションの設定
+:root {
+	--fade-duration: 1s; //アニメーション時間
+	--fade-fill: forwards; //アニメーション再生中・再生後のスタイル
+	--fadeUp-movement: 50px; //fadeUp
+	--fadeLeft-movement: 50px; //fadeLeft
+	--fadeRight-movement: -50px; //fadeRight(-で設定)
+}
+
+/* 共通 */
+.u-fadeIn,
+.u-fadeUp,
+.u-fadeLeft,
+.u-fadeRight {
+	animation-duration: var(--fade-duration);
+	animation-fill-mode: var(--fade-fill);
+}
+/* それぞれの設定 */
+.u-fadeIn {
+	animation-name: fadeIn;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		// transform: translateY( var(--fadeUp-movement) );
+	}
+	100% {
+		opacity: 1;
+		// transform: translateY(0);
+	}
+}
+
+.u-fadeUp {
+	animation-name: fadeUp;
+}
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		transform: translateY( var(--fadeUp-movement) );
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.u-fadeLeft {
+	animation-name: fadeLeft;
+}
+@keyframes fadeLeft {
+	0% {
+		opacity: 0;
+		transform: translateX( var(--fadeLeft-movement) );
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.u-fadeRight {
+	animation-name: fadeRight;
+}
+@keyframes fadeRight {
+	0% {
+		opacity: 0;
+		transform: translateX( var(--fadeRight-movement) );
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+

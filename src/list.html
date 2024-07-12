@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- noindex nofollow -->
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- title -->
+    <title>{{meta.list.title}}{{meta.separator}}{{meta.sitename}}</title>
+    <!-- meta情報 -->
+    <meta name="description" content="{{meta.list.description}}" />
+    {{#if meta.list.canonical}}<link rel="canonical" href="{{meta.list.canonical}}" />{{/if}}
+    <meta name="keywords" content="{{ meta.list.keywords }}" />
+    <!-- ogp -->
+    <meta property="og:title" content="{{ meta.list.title }}" />
+    <meta property="og:type" content="{{ meta.list.ogp_type }}" />
+    <meta property="og:url" content="{{ meta.list.ogp_url }}" />
+    <meta property="og:image" content="{{ meta.ogp_imgUrl }}" />
+    <meta property="og:site_name" content="{{ meta.sitename }}" />
+    <meta property="og:description" content="{{#if meta.list.ogp_description}}{{meta.list.ogp_description}}{{else}}{{meta.description}}{{/if}}" />
+    <meta name="twitter:card" content="{{ meta.twitter_card_size }}" />
+    <meta name="twitter:site" content="{{meta.twitter_user}}" />
+    <!-- favicon -->
+    {{> _favicon}}
+    
+    <!-- CSSの読み込みを追加 -->
+    <link rel="stylesheet" href="./scss/style.scss">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- JavaScript -->
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    {{> header}}
+
+    <div class="space"></div>
+    <div id="app"></div>
+    <p>list.html</p>
+    <h3 class="test js-click">clickkkkkk Meeeee!!!!!!!!:)</h3>
+    
+  </body>
+</html>

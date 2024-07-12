@@ -1,0 +1,7 @@
+/* slick使用時はこのファイルを絶対消さないでください */
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+$slick-font-path: "../../slick/fonts/" !default;
+$slick-loader-path: "../../slick/" !default;

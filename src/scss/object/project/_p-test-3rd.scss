@@ -1,0 +1,13 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+.p-test-3rd {
+  color: lightblue;
+
+  @include mq(md) {
+    color: $text-color;
+    font-size: rem(56);
+    font-weight: bold;
+  }
+}

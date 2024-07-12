@@ -1,0 +1,6 @@
+{
+  "html": {
+    "indent_size": 1,
+    "unformatted": ["svg", "pre"]
+  }
+}

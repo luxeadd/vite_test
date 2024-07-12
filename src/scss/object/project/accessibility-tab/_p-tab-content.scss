@@ -1,0 +1,23 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+
+.p-tab-panel {
+  border: 1px solid #777;
+  box-shadow: 0px 4px 14px color.scale(#000, $alpha: -90%);
+  padding: rem(10);
+  margin-top: rem(20);
+  @include mq(md) {
+    max-width: rem(800);
+    width: 100%;
+  }
+}
+
+.p-tab-panel__item {
+
+}
+
+.p-tab-panel__item[aria-hidden="true"] {
+  display: none;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- noindex nofollow -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title -->
+    <title>{{meta.party.title}}{{meta.separator}}{{meta.sitename}}</title>
+    <!-- meta情報 -->
+    <meta name="description" content="{{meta.party.description}}" />
+    {{#if meta.party.canonical}}<link rel="canonical" href="{{meta.party.canonical}}" />{{/if}}
+    <meta name="keywords" content="{{ meta.party.keywords }}" />
+    <!-- ogp -->
+    <meta property="og:title" content="{{ meta.party.title }}" />
+    <meta property="og:type" content="{{ meta.party.ogp_type }}" />
+    <meta property="og:url" content="{{ meta.party.ogp_url }}" />
+    <meta property="og:image" content="{{ meta.ogp_imgUrl }}" />
+    <meta property="og:site_name" content="{{ meta.sitename }}" />
+    <meta property="og:description" content="{{#if meta.party.ogp_description}}{{meta.party.ogp_description}}{{else}}{{meta.description}}{{/if}}" />
+    <meta name="twitter:card" content="{{ meta.twitter_card_size }}" />
+    <meta name="twitter:site" content="{{meta.twitter_user}}" />
+    <!-- favicon -->
+    {{> _favicon}}
+
+    <!-- CSSの読み込みを追加 -->
+    <link rel="stylesheet" href="./scss/style.scss">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- JavaScript -->
+    <script type="module" src="./js/main.js"></script>
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <p>list.html</p>
+    <h3 class="js-click">we are party ppl!!!!!! →→→→→plz click Meeee!!!!!!!←←←←←</h3>
+
+
+    
+  </body>
+</html>

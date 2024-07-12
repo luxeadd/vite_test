@@ -1,0 +1,14 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+
+.p-test-2nd {
+  color: $text-color;
+
+  @include mq(md) {
+    font-size: rem(90);
+    font-weight: bold;
+    color: $text-primary;
+  }
+}

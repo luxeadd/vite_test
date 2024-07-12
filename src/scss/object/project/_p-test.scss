@@ -1,0 +1,32 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+.p-test {
+	color: red;
+	color: orange;
+	font-size: rem(20);
+	font-size: rem(40);
+
+	@include mq(tab) {
+		font-size: rem(50);
+		color: green;
+	}
+
+	@include mq(pc) {
+		color: blue;
+	}
+
+	@include mq(lg) {
+		color: brown;
+	}
+}
+
+.p-test--primary {
+	color: $text-primary;
+}
+
+.p-test--tc {
+	color: $text-color;
+	padding-left: $padding-pc;
+}

@@ -1,0 +1,8 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+.l-footer {
+  // footerを最下部にするための記述
+  margin-top: auto;
+}

@@ -1,0 +1,171 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+$headerHeight : 66px;
+
+.p-header {
+  background-color: #aaa;
+  height: $headerHeight;
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: background-color .3s;
+}
+
+.p-header.is-headerScrolled {
+  // color: #ff6347;
+  background: #ff6347;
+  transition: backgound .3s ease-out;
+}
+
+.p-header__inner.l-inner {
+  height: inherit;
+  max-width: rem(1250);
+}
+
+.p-header__wrapper {
+  height: inherit;
+
+  @include mq(md) {
+    display: flex;
+
+  }
+}
+
+.p-header__logo {
+  color: #FFF;
+  font-size: rem(26);
+  font-weight: bold;
+  font-style: italic;
+  line-height: calc(36 / 26);
+  text-transform: capitalize;
+  position: relative;
+  z-index: 2;
+  height: inherit;
+
+  @include mq(md) {
+    display: inline-block;
+    max-width: rem(198);
+    width: 100%;
+  }
+}
+
+.p-header__logo a {
+  height: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.p-header__nav {
+  display: none;
+  background-color: #000;
+  color: #FFF;
+  text-transform: capitalize;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  // height: calc(100vh + $headerHeight);
+  // height: calc(var(--vh, 1vh) * 100 + $headerHeight );
+  position: absolute;
+  z-index: 99;
+  font-size: rem(16);
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: .05em;
+  line-height: calc(22 / 16);
+
+  animation-fill-mode: forwards;
+
+  @include mq(md) {
+    display: block;
+    height: inherit;
+    left: initial;
+    background-color: transparent;
+    position: initial;
+    top: initial;
+    left: initial;
+    right: initial;
+  }
+}
+
+.p-header__nav--pc {
+  display: none;
+
+  @include mq(md) {
+    display: block;
+    height: inherit;
+    background-color: transparent;
+    position: initial;
+    top: initial;
+    left: initial;
+    right: initial;
+  }
+}
+
+.p-header__nav--sp {
+  display: none;
+  background-color: #000;
+  color: #FFF;
+  text-transform: capitalize;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  // height: calc(100vh - 50px);
+  height: 100vh;
+  // height: calc(100vh + $headerHeight);
+  // height: calc(var(--vh, 1vh) * 100 + $headerHeight );
+  // position: absolute;
+  position: fixed;
+  z-index: $header_nav_z-index;
+  font-size: rem(16);
+  font-weight: bold;
+  letter-spacing: .05em;
+  line-height: calc(22 / 16);
+  overflow-y: scroll;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.p-header__items {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+
+  @include mq(md) {
+    height: inherit;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.p-header__item {
+  height: inherit;
+}
+
+.p-header__item a {
+  display: block;
+  padding: rem(15) 0;
+
+  @include mq(md) {
+    height: inherit;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.p-header__item+.p-header__item {
+  @include mq(md) {
+    padding-top: initial;
+    margin-left: rem(30);
+  }
+}

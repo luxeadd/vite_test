@@ -1,0 +1,22 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+.c-test {
+	color: red;
+	font-size: rem(20);
+
+	@include mq(tab) {
+		font-size: rem(50);
+		color: green;
+	}
+
+	@include mq(pc) {
+		color: blue;
+		color: $text-color;
+	}
+
+	@include mq(lg) {
+		color: brown;
+	}
+}

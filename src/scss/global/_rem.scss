@@ -1,0 +1,14 @@
+@use 'setting' as *;
+@use "sass:math";
+
+////////////////////
+// rem計算式
+////////////////////
+@function rem($pixels) {
+  // @return math.div($pixels, 16) * 1rem;
+  @return math.div($pixels, 10) * 1rem;
+}
+
+@function vw($size, $window_width: $vw_standard_width) {
+	@return math.div($size, $window_width) * 100vw;
+}

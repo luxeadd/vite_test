@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- noindex nofollow -->
+  {{> _noindex}}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- title -->
+  <title>{{meta.top.title}}{{meta.separator}}{{meta.sitename}}</title>
+  <!-- meta情報 -->
+  <meta name="description" content="{{meta.top.description}}" />
+  <meta name="keywords" content="{{ meta.top.keywords }}" />
+  <!-- ogp -->
+  <meta property="og:title" content="{{ meta.top.title }}" />
+  <meta property="og:type" content="{{ meta.top.ogp_type }}" />
+  <meta property="og:url" content="{{ meta.top.ogp_url }}" />
+  <meta property="og:image" content="{{ meta.ogp_imgUrl }}" />
+  <meta property="og:site_name" content="{{ meta.sitename }}" />
+  <meta property="og:description"
+    content="{{#if meta.top.ogp_description}}{{meta.top.ogp_description}}{{else}}{{meta.description}}{{/if}}" />
+  <meta name="twitter:card" content="{{ meta.twitter_card_size }}" />
+  <meta name="twitter:site" content="{{meta.twitter_user}}" />
+  <!-- favicon -->
+  {{> _favicon}}
+  <!-- library -->
+  {{> _library}}
+
+  <!-- CSSの読み込みを追加 -->
+  <link rel="stylesheet" href="./scss/style.scss" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- JavaScript -->
+  <script type="module" src="./js/main.js"></script>
+  <script defer src="./assets/js/hige.js"></script>
+
+</head>
+
+<body>
+  {{> header}}
+
+  <div class="space"></div>
+
+  <section>
+    <div class="l-inner">
+
+      <a href="#display">to display</a>
+
+
+      <div class="space"></div>
+
+      <p class="test js-click js-fadeUp">変更のテスト、ここをクリックしてね</p>
+      <img src="./assets/images/hoge.jpg" alt="">
+      <img src="./assets/images/dummy.jpg" alt="">
+
+      <p>test</p>
+
+      <p>swiper↓</p>
+      <div class="swiper js-test-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://haniwaman.com/cms/wp-content/uploads/2018/05/swiper01.png"
+              alt="Swiper01"></div>
+          <div class="swiper-slide"><img src="https://haniwaman.com/cms/wp-content/uploads/2018/05/swiper02.png"
+              alt="Swiper02"></div>
+          <div class="swiper-slide"><img src="https://haniwaman.com/cms/wp-content/uploads/2018/05/swiper03.png"
+              alt="Swiper03"></div>
+        </div>
+        <div class="swiper-button-prev js-test-swiper-prev"></div>
+        <div class="swiper-button-next js-test-swiper-next"></div>
+        <div class="swiper-pagination js-test-swiper-pagination"></div>
+        <div class="swiper-scrollbar js-test-swiper-scrollbar"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+  <section>
+    <div class="l-inner">
+
+      <!-- アクセシビリティ対応アコーディオン -->
+      <dl class="p-qa-list" role="tablist">
+        <div class="p-qa-list__item p-qa-item" role="tab">
+          <dt class="p-qa-item__question is-open js-question">
+            <button class="p-qa-item__btn js-qa-btn" type="button" role="tab" aria-controls="accordion-dummyNumber"
+              aria-selected="true" aria-expanded="true"> 質問文1が入ります </button>
+          </dt>
+          <dd class="p-qa-item__answer js-answer" role="tabpanel" id="accordion-dummyNumber1" aria-hidden="false">
+            答え1が入ります。 </dd>
+        </div>
+        <div class="p-qa-list__item p-qa-item" role="tab">
+          <dt class="p-qa-item__question is-open js-question">
+            <button class="p-qa-item__btn js-qa-btn" type="button" role="tab" aria-controls="accordion-dummyNumber"
+              aria-selected="true" aria-expanded="true">
+              質問文2が入ります。質問文2が入ります。質問文2が入ります。質問文2が入ります。質問文2が入ります。質問文2が入ります。質問文2が入ります。 </button>
+          </dt>
+          <dd class="p-qa-item__answer js-answer" role="tabpanel" id="accordion-dummyNumber2" aria-hidden="false">
+            答え2が入ります。<br>答え2が入ります。答え2が入ります。答え2が入ります。 </dd>
+        </div>
+        <div class="p-qa-list__item p-qa-item" role="tab">
+          <dt class="p-qa-item__question is-open js-question">
+            <button class="p-qa-item__btn js-qa-btn" type="button" role="tab" aria-controls="accordion-dummyNumber"
+              aria-selected="true" aria-expanded="true"> 質問文3が入ります。 </button>
+          </dt>
+          <dd class="p-qa-item__answer js-answer" role="tabpanel" id="accordion-dummyNumber3" aria-hidden="false">
+            答え3が入ります。答え3が入ります。答え3が入ります。 </dd>
+        </div>
+      </dl>
+
+      <div class="space"></div>
+
+      <!-- アクセシビリティ対応タブ -->
+      <ul class="p-tab-list" role="tablist">
+        <li class="p-tab-list__item">
+          <button class="p-tab-list__btn js-tab-btn" type="button" role="tab" aria-controls="tab-content-dummyNumber"
+            aria-selected="true">タブ1</button>
+        </li>
+        <li class="p-tab-list__item">
+          <button class="p-tab-list__btn js-tab-btn" type="button" role="tab" aria-controls="tab-content-dummyNumber"
+            aria-selected="false">タブ2</button>
+        </li>
+        <li class="p-tab-list__item">
+          <button class="p-tab-list__btn js-tab-btn" type="button" role="tab" aria-controls="tab-content-dummyNumber"
+            aria-selected="false">タブ3</button>
+        </li>
+      </ul>
+      <div class="p-tab-panel">
+        <div id="tab-content-dummyNumber" class="p-tab-panel__item js-tab-panel" role="tabpanel" aria-hidden="false">
+          <p>タブ1の内容がここに入ります。</p>
+        </div>
+        <div id="tab-content-dummyNumber" class="p-tab-panel__item js-tab-panel" role="tabpanel" aria-hidden="true">
+          <p>タブ2の内容がここに入ります。<br>タブ2の内容がここに入ります。</p>
+        </div>
+        <div id="tab-content-dummyNumber" class="p-tab-panel__item js-tab-panel" role="tabpanel" aria-hidden="true">
+          <p>タブ3の内容がここに入ります。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="space"></div>
+
+
+  <section>
+    <div class="l-inner">
+      <p>↓↓ボタン↓↓</p>
+      <!-- {{> _c-btn }} -->
+      <%- include('./components/_c-btn.html',{link:"google.co.jp", text:"ボタンです"}) %>
+        <p>{{ data.date }}</p>
+
+
+        <p class="test js-fadeLeft">タイトル↓</p>
+        <h3 class="p-test-2nd js-fadeIn">{{data.title}}</h3>
+
+        <p>JSONファイルから引っ張るテスト</p>
+        <p>{{data2}}</p>
+        <p>{{data2}}だよ</p>
+        <p>data => {{data}}</p>
+        <p>data.name => {{data.name}}</p>
+        <p>data.date => {{data.date}}</p>
+        <% const domain2="example.com" %>
+          <%= domain2 %>
+
+
+            <div class="space"></div>
+
+            <h3>pageData</h3>
+            <p>{{firstname}} {{lastname}}</p>
+            <h3>indexData</h3>
+            <p>{{first}} {{last}}</p>
+
+            <p>array↓↓↓</p>
+            {{#with array}}
+            <p>{{arraydata01}}</p>
+            {{/with}}
+            <p>{{arraydata01}}</p>
+            {{#each array}}
+
+            {{/each}}
+
+            <h3>array:{{array.arraydata01}}</h3>
+            <h3>name:{{date}}</h3>
+            <h3></h3>
+
+            {{#with con3ary}}
+            <p>{{ary01}}</p>
+            <p>{{ary02}}</p>
+            <p>{{ary03}}</p>
+            {{/with}}
+
+
+            <h3 class="kanako">momoclo</h3>
+            {{#each momoclo}}
+            <p class="secondary">{{firstname}}：{{lookup ../color firstname}}</p>
+            {{/each}}
+
+
+            <h3>ab ( {{data.name}} )a</h3>
+            <h3>fuga => ( {{fuga.name}} )</h3>
+
+            <a href="./list.html">list.html</a>
+
+
+    </div>
+  </section>
+
+  <section id="display">
+    ここに移動
+  </section>
+</body>
+
+</html>

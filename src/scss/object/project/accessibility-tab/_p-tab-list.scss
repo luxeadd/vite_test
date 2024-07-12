@@ -1,0 +1,27 @@
+@use 'src/scss/global' as *;
+@use "sass:math";
+@use "sass:color";
+
+
+.p-tab-list {
+  display: flex;
+
+}
+
+.p-tab-list__item {
+  
+}
+
+.p-tab-list__btn {
+  background-color: #E4EAF0;
+}
+
+.p-tab-list__btn:focus-visible {
+outline: 1px solid #777;    
+background-color: #3498db;
+}
+
+.p-tab-list__btn[aria-selected="true"] {
+  background-color: #79cef5;
+}
+
